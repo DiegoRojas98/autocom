@@ -2,21 +2,81 @@ Proyecto AutoCom (Laravel 11)
 
 para ejecutar el proyecto de manera local por favor tenga en cuenta los siguiente requisitos:
 
--php version 8.3
--extenciones php zip, curl, xml, mbstring, intl, gd, zip
--mysql servidor en el puerto 3036 (base de datos autocom)
--npm version 8.5
+   -php version >= 8.3
+   -extenciones php (zip, curl, xml, mbstring, gd, intl)
+   -mysql servidor en el puerto 3036 (base de datos autocom)
+   -node
+   -composer 
+   -git
+
+
+--> Codigo Fuente
+Por favor se le aconseja descargar el codigo fuente con el uso de git con el comando
+
+    git clone https://github.com/DiegoRojas98/autocom
 
 
 
--Docker (linux)
+--> Ejecuciones
+Existen diversas formas para la ejecucion del proyecto en este caso explicare
+las dos principales, las cuales son ejecucion con ayuda de XAMPP y ejecucion con Docker
+
+
+
+--> Ejecucion con XAMPP
+Para ejecutar el proyecto nos podemos apoyar de la aplicacion XAMPP la cual
+tiene como herramientas la creacion de servicios php y mysql, los cuales
+nos serviran para ejecutar laravel.
+
+Para ello copiaremos el codigo fuente en la ruta "xampp/htdocs/"
+
+- Modificacion de variable DB_HOST en .env
+Por favor para conectarse correctamente a la base de datos por medio de XAMPP 
+verifique la varible DB_HOST en el archivo .env
+	
+	DB_HOST=localhost
+
+Una vez realizado 
+este paso abrimos una terminal en la ruta del codigo fuente "xampp/htdocs/autocom/"
+y ejecutamos los comandos
+
+    composer update
+    composer install
+    npm update
+    npm install
+
+- Importacion de base de datos
+Ingrese ha phpmyadmin, cree la base de datos "autocom" e importe el archivo 
+"autocomDB.sql" el cual se encuentra dentro del codigo fuente en la ruta 
+"autocom/database/backups/"
+
+Ejecute los siguientes comandos en dos terminales ubicadas en la ruta del codigo fuente
+
+	php artisan serve --port=8086
+	npm run dev
+
+Una vez realizado lo anterior la aplicacion debera estar lista localmente en el url 
+
+	http://127.0.0.1:8086
+
+
+
+
+--> Ejecucion Con Docker (linux)
 El proyecto puede ser ejecutado en un entorno docker para realizarlo tenga muy en cuenta los 
-requisitos antes descritos y el uso del entorno de docker.
+requisitos ya descritos y el uso del entorno de docker.
 
-Ubiquese en el directorio autocom y cree el archivo .env (si no existe) los datos de este archivo
-se encuentra la final del archivo actual en la seccion "-Datos .env".
+Teniendo encuenta que nos encontramos en un sistema operativo basado en linux y que ya habremos 
+descargado el codigo fuente realizaremos lo suiguiente.
 
-Una vez creado el archivo .env ejecute los siguientes comandos
+- Modificacion de variable DB_HOST en .env
+Por favor para conectarse correctamente a la base de datos por medio de contenedores Docker
+verifique la varible DB_HOST en el archivo .env
+	
+	DB_HOST=mysql
+
+En el directorio del codigo fuente ejecutaremos los siguientes comandos encargados de
+descargar las dependencias correspondientes del proyecto y dar permisos a los archivos
 
     composer update
     composer install
@@ -24,116 +84,29 @@ Una vez creado el archivo .env ejecute los siguientes comandos
     npm install
     sudo chmod -R ugo+rw storage
 
-Estos descargaran las dependencias correspondientes del proyecto (tenga en cuenta que las dependencias
-dependencias pueden llegar a generar error si la versiones y extenciones de php no son correctas).
-
-Luego de esto ejecute el comando 
+Luego de esto ejecute el suiguiente comando el cual se encarga de crear los contenedores requeridos 
+por la aplicacion, especificados en el archivo "docker-compose.yml" el cual hace uso del archivo ".env"
 
     docker-compose up -d
 
-Este creara los contenedores requeridos por la aplicacion especificados en el archivo 
-docker-compose.yml el cual hace uso del archivo .env (he aqui la importancia de creara
-el archivo .env)
+Para la base de datos podemos realizar alguna de las siguientes acciones
 
-Luego de esto ejecute el comando 
-
-    docker-compose exec laravel.test npm run dev -d
-
-Este comando compilara los estilos
-
-
-Para la base de datos puede realizar dos acciones
-
-1.Ejecute el comando 
+- Ejecutar migraciones(seeders)
+Ejecute el siguiente comando para realizar las migraciones junto a los seeder, los cuales 
+tienen los datos requeridos para la correcta ejecucion del proyecto
 
     docker-compose exec laravel.test php artisan migrate:fresh --seed
 
-Esto ejecutara las migraciones de de la base de datos 
+- Importacion de base de datos
+Ingrese al contenedor  "mysql", cree la base de datos "autocom" e importe el archivo 
+"autocomDB.sql" el cual se encuentra dentro del codigo fuente en la ruta "autocom/database/backups/" 
 
-2.Ingrese al contenedor  "mysql" si no existe, cree la base de datos "autocom" e importe el archivo 
-"autocomDB.sql" el cual se encuentra dentro del directorio "autocom/database/backups/" 
 
+Luego de esto ejecute el comando el cual servira de ayuda para compilar los estilo
+
+    docker-compose exec laravel.test npm run dev
 
 Una vez realizado lo anterior la aplicacion debera estar lista localmente en el url 
 
     http://127.0.0.1:8086
-
-
-
-
-
-
--Datos .env 
-
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:bD2iLPHFIabi3b8T3YDZHRxStTyZ1Az3PJDfIECEmH8=
-APP_DEBUG=true
-APP_TIMEZONE=UTC
-APP_URL=http://localhost
-
-APP_LOCALE=en
-APP_FALLBACK_LOCALE=en
-APP_FAKER_LOCALE=en_US
-
-APP_MAINTENANCE_DRIVER=file
-APP_MAINTENANCE_STORE=database
-
-BCRYPT_ROUNDS=12
-
-LOG_CHANNEL=stack
-LOG_STACK=single
-LOG_DEPRECATIONS_CHANNEL=null
-LOG_LEVEL=debug
-
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=autocom
-DB_USERNAME=auto
-DB_PASSWORD=com
-
-SESSION_DRIVER=database
-SESSION_LIFETIME=120
-SESSION_ENCRYPT=false
-SESSION_PATH=/
-SESSION_DOMAIN=null
-
-BROADCAST_CONNECTION=log
-FILESYSTEM_DISK=local
-QUEUE_CONNECTION=database
-
-CACHE_STORE=database
-CACHE_PREFIX=
-
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_CLIENT=phpredis
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=smtp
-MAIL_HOST=mailpit
-MAIL_PORT=1025
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS="hello@example.com"
-MAIL_FROM_NAME="${APP_NAME}"
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_USE_PATH_STYLE_ENDPOINT=false
-
-VITE_APP_NAME="${APP_NAME}"
-
-SCOUT_DRIVER=meilisearch
-MEILISEARCH_HOST=http://meilisearch:7700
-
-MEILISEARCH_NO_ANALYTICS=false
-
-WWWGROUP=1000
-WWWUSER=1000
+    http://localhost:8086
