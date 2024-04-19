@@ -5,9 +5,8 @@ para ejecutar el proyecto de manera local por favor tenga en cuenta los siguient
    -php version >= 8.2
    -extenciones php (zip, curl, xml, mbstring, gd, intl)
    -mysql servidor en el puerto 3036 (base de datos autocom)
-   -node
    -composer 
-   -git
+   -git (opcional)
 
 Por favor tener muy presente las extenciones de php ya que el no tener activas estas 
 puede llegar a generar diversos errores al momento de descargar las dependencias del
@@ -50,18 +49,15 @@ Una vez realizado este paso abrimos una terminal en la ruta del codigo fuente
 
     composer update
     composer install
-    npm update
-    npm install
 
 - Importacion de base de datos
 Ingrese ha phpmyadmin, cree la base de datos "autocom" e importe el archivo 
 "autocomDB.sql" el cual se encuentra dentro del codigo fuente en la ruta 
 "autocom/database/backups/"
 
-Ejecute los siguientes comandos en dos terminales ubicadas en la ruta del codigo fuente
+Ejecute el siguiente comando en una terminal ubicada en la ruta del codigo fuente
 
 	php artisan serve --port=8086
-	npm run dev
 
 Una vez realizado lo anterior la aplicacion debera estar lista localmente en el url 
 
@@ -88,8 +84,6 @@ descargar las dependencias correspondientes del proyecto y dar permisos a los ar
 
     composer update
     composer install
-    npm update
-    npm install
     sudo chmod -R ugo+rw storage
 
 Luego de esto ejecute el suiguiente comando el cual se encarga de crear los contenedores requeridos 
@@ -97,6 +91,7 @@ por la aplicacion, especificados en el archivo "docker-compose.yml" el cual hace
 
     docker-compose up -d
 
+- Importacion de base de datos
 Para la base de datos podemos realizar alguna de las siguientes acciones
 
 - Ejecutar migraciones(seeders)
@@ -105,14 +100,10 @@ tienen los datos requeridos para la correcta ejecucion del proyecto
 
     docker-compose exec laravel.test php artisan migrate:fresh --seed
 
-- Importacion de base de datos
+- Importacion de base de datos con archivo
 Ingrese al contenedor  "mysql", cree la base de datos "autocom" e importe el archivo 
 "autocomDB.sql" el cual se encuentra dentro del codigo fuente en la ruta "autocom/database/backups/" 
 
-
-Luego de esto ejecute el comando el cual servira de ayuda para compilar los estilo
-
-    docker-compose exec laravel.test npm run dev
 
 Una vez realizado lo anterior la aplicacion debera estar lista localmente en el url 
 
