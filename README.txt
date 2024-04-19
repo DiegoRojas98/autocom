@@ -2,7 +2,7 @@ Proyecto AutoCom (Laravel 11)
 
 para ejecutar el proyecto de manera local por favor tenga en cuenta los siguiente requisitos:
 
-   -php version >= 8.3
+   -php version >= 8.2
    -extenciones php (zip, curl, xml, mbstring, gd, intl)
    -mysql servidor en el puerto 3036 (base de datos autocom)
    -node
