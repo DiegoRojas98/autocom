@@ -38,7 +38,7 @@ verifique la varible DB_HOST en el archivo .env
 
 Por favor tener encuenta que las variables DB_USERNAME y DB_PASSWORD deben ser 
 coincidentes con el usuario y clave de mysql XAMPP los cuales normalente son user=root 
-y password '' (vacio), esto dependera exclusiovamente de la configuracion de mysql XAMPP, 
+y password '' (vacio), esto dependera exclusivamente de la configuracion de mysql XAMPP, 
 por tal motivo en el archivo ".env" vera que ambas estan definidas como DB_USERNAME=root 
 y DB_PASSWORD=  . Esto lo puede modificar segun los datos de usuario de su mysql XAMPP
 
