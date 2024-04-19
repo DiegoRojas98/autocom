@@ -66,7 +66,7 @@ Ejecute los siguientes comandos en dos terminales ubicadas en la ruta del codigo
 Una vez realizado lo anterior la aplicacion debera estar lista localmente en el url 
 
 	http://127.0.0.1:8086
-
+	http://localhost:8086
 
 
 
