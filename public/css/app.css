@@ -1,0 +1,40 @@
+body{
+    font-family: sans-serif;
+    text-align: center;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.contend{
+    margin: 5%;
+    flex: 1;
+}
+
+.footer{
+    background-color: rgb(33 37 41);
+    padding: 1%;
+    color: white;
+}
+
+#paragraphIndex{
+    font-size: 1.3em;
+}
+
+#imgCar{
+    width:40vw;
+    height:40vh;
+}
+
+@media screen and (max-width: 780px) {
+    #imgCar{
+        width:70vw;
+        height:40vh;
+    }
+}
+
+.errorInput{
+    color: red;
+    font-size: 10px;
+}
