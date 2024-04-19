@@ -77,5 +77,5 @@
         @break    
     @endforeach
 
-    @vite(['resources/js/user.js'])
+    <script src="{{asset('js/user.js')}}"></script>
 @endsection
