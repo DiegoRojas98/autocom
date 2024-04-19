@@ -9,6 +9,9 @@ para ejecutar el proyecto de manera local por favor tenga en cuenta los siguient
    -composer 
    -git
 
+Por favor tener muy presente las extenciones de php ya que el no tener activas estas 
+puede llegar a generar diversos errores al momento de descargar las dependencias del
+proyecto.
 
 --> Codigo Fuente
 Por favor se le aconseja descargar el codigo fuente con el uso de git con el comando
