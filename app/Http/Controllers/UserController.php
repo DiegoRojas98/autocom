@@ -42,7 +42,7 @@ class UserController extends Controller
     public function download()
     {
         $users = User::all();
-
+        /*
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="Participantes.xlsx"');
         header('Cache-Control: max-age=0');
@@ -139,6 +139,8 @@ class UserController extends Controller
         ob_end_clean();//Limpia buffer evita error de creacion de excel
         $writer->save('php://output'); 
         exit;
+        */
+        return response()->json($users);
     }
 
 
