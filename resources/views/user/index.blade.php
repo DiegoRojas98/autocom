@@ -4,8 +4,8 @@
 
 @section('styles')
     <!-- Data tables -->
-    <link rel="stylesheet" href="{{asset('libs/datatables/dataTables.bootstrap5.css')}}">
-    <link rel="stylesheet" href="{{asset('libs/datatables/responsive.bootstrap5.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('libs/datatables/dataTables.bootstrap5.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('libs/datatables/responsive.bootstrap5.css')}}">
 @endsection
 
 @section('contend')
@@ -49,11 +49,11 @@
 @section('js')
 
     <!-- DataTables-->
-    <script src="{{asset('libs/datatables/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('libs/datatables/dataTables.js')}}"></script>
-    <script src="{{asset('libs/datatables/dataTables.bootstrap5.js')}}"></script>
-    <script src="{{asset('libs/datatables/dataTables.responsive.js')}}"></script>
-    <script src="{{asset('libs/datatables/responsive.bootstrap5.js')}}"></script>
+    <script src="{{secure_asset('libs/datatables/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{secure_asset('libs/datatables/dataTables.js')}}"></script>
+    <script src="{{secure_asset('libs/datatables/dataTables.bootstrap5.js')}}"></script>
+    <script src="{{secure_asset('libs/datatables/dataTables.responsive.js')}}"></script>
+    <script src="{{secure_asset('libs/datatables/responsive.bootstrap5.js')}}"></script>
 
     <script>
         $(document).ready(function() {

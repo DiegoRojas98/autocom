@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-   <link href="{{asset('libs/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+   <link href="{{secure_asset('libs/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{secure_asset('css/app.css')}}">
     @yield('styles')
 </head>
 <body>
@@ -24,7 +24,7 @@
             
             <div class="d-flex">
                 <a href="{{route('contact')}}" >
-                    <img src="{{asset('img\\call.png')}}" alt="Contactanos" title="contactanos" width="50" height="40">
+                    <img src="{{secure_asset('img\\call.png')}}" alt="Contactanos" title="contactanos" width="50" height="40">
                 </a>
             </div>
         </div>
@@ -39,9 +39,9 @@
     </div>
     
     
-    <script src="{{asset('libs/jquery.js')}}"></script>
+    <script src="{{secure_asset('libs/jquery.js')}}"></script>
     {{-- Helpers js --}}
-    <script src="{{asset('libs/componentAlert.js')}}"></script>
+    <script src="{{secure_asset('libs/componentAlert.js')}}"></script>
 
     @error('success')
         <input type="hidden"  id="success" value="{{$message}}">
