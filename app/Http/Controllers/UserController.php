@@ -54,7 +54,7 @@ class UserController extends Controller
         # por lo tanto su primera posicion es la (0), tambien es la unica 
         # hoja creada al instanciar la clase Spreadsheet
         $spreadsheet->setActiveSheetIndex(0);
-
+        /*
         # Modifica tipo de letra por defecto de la hoja
         $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
 
@@ -66,10 +66,10 @@ class UserController extends Controller
 
         #configuracion global de filas altura
         $spreadsheet->getActiveSheet()->getDefaultRowDimension()->setRowHeight(15);
-
+        */
         # Selecciona la hoja activa, indicada anteriormente
         $sheet = $spreadsheet->getActiveSheet();
-
+        /*
         #Modifica el Titulo de la hoja
         $sheet->setTitle("Reporte de Participantes");
         
@@ -80,7 +80,7 @@ class UserController extends Controller
 
         #Negrita en la fila
         $sheet->getStyle('1')->applyFromArray(['font' => ['bold' => true,]]);
-
+        */
         $sheet->setCellValue('A1', '#');
         $sheet->setCellValue('B1', 'Nombre');
         $sheet->setCellValue('C1', 'Departamento');
