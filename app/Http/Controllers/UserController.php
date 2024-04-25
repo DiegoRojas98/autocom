@@ -42,11 +42,11 @@ class UserController extends Controller
     public function download()
     {
         $users = User::all();
-        /*
+        
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="Participantes.xlsx"');
         header('Cache-Control: max-age=0');
-
+        
         # Crea una instacia de la clase Spreadsheet
         $spreadsheet = new Spreadsheet();
 
@@ -90,7 +90,7 @@ class UserController extends Controller
         $sheet->setCellValue('G1', 'Documento');
         $sheet->setCellValue('H1', 'Registro');
 
-
+        /*
         $cell = 2;
         foreach ($users as $user) {
             $sheet->setCellValue("A$cell", $user->id);
@@ -131,7 +131,7 @@ class UserController extends Controller
         # Formato miles para el campo documento
         $sheet->getStyle("G2:G$cell")->getNumberFormat()->setFormatCode('#,##0');
 
-
+        */
 
         # generacion de archivo
         $writer = new Xlsx($spreadsheet);
@@ -139,8 +139,6 @@ class UserController extends Controller
         ob_end_clean();//Limpia buffer evita error de creacion de excel
         $writer->save('php://output'); 
         exit;
-        */
-        return response()->json($users);
     }
 
 
