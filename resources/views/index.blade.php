@@ -3,7 +3,7 @@
 @section('title','Inicio')
 
 @section('contend')
-    <img src="{{secure_asset('img\\car.png')}}" alt="Auto" id="imgCar">
+    <img src="{{asset('img\\car.png')}}" alt="Auto" id="imgCar">
     <h2 >Gana con AutoCom </h2>
     <p id="paragraphIndex" >
         Se parte de nuestra familia y disfruta de nuestro gran lanzamiento en el cual podras participar en el 

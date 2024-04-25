@@ -77,5 +77,5 @@
         @break    
     @endforeach
 
-    <script src="{{secure_asset('js/user.js')}}"></script>
+    <script src="{{asset('js/user.js')}}"></script>
 @endsection

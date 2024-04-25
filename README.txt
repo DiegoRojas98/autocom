@@ -1,4 +1,4 @@
-Proyecto AutoCom (Laravel 11)
+Proyecto AutoCom (Laravel 11) + APi y Railway
 
 para ejecutar el proyecto de manera local por favor tenga en cuenta los siguiente requisitos:
 
@@ -109,3 +109,69 @@ Una vez realizado lo anterior la aplicacion debera estar lista localmente en el 
 
     http://127.0.0.1:8086
     http://localhost:8086
+
+
+
+
+-->API
+Para el uso de la API por favor tenga encuenta los suguientes llamados
+
+GET (Lista de usuarios)
+http://127.0.0.1:8086/api/user
+
+
+POST (Creacion de usuarios, sujeto avalidaciones)
+http://127.0.0.1:8086/api/user
+
+	body
+	{
+	  "name" : "",
+	  "lastname" : "",
+	  "document" : "",
+	  "city" : "",
+	  "phone" : "",
+	  "email" : ""
+	}
+
+
+GET (busqueda de usuario, x = id del usuario)
+http://127.0.0.1:8086/api/user/x
+
+
+
+PACHT (Actualizacion parcial (todos campos no son requeridos), x = id del usuario )
+http://127.0.0.1:8086/api/user/x
+	
+	body
+	{
+	  "name" : "",
+	  "lastname" : "",
+	  "document" : "",
+	  "city" : "",
+	  "phone" : "",
+	  "email" : ""
+	}
+
+
+
+
+
+
+-->Railway 
+Railway es un servicio en la nube para el despliegue de aplicaciones de prueba, 
+tenga en cuenta que este al ser un servicio gratuito tiende ha ser un poco mas lento,
+pueden observar el despliegue de esta apliacion en la suiguiente url,.
+
+    https://autocom-production.up.railway.app
+
+
+
+En este caso se creo una rama alterna denominada 'production' la cual modifica el 
+llamado de archivos js y css, con el uso de la funcion 'secure_asset' el cual carga 
+estos recursos con el protocolo https (teniendo en cuenta que la funcion 'asset()' los 
+cargar con el protocolo http), esto evita fallos en el cargue de recursos tanto en produccion 
+como en local, por tal motivo se le aconseja usar la rama 'master' para la ejecucion
+de la aplicacion de manera local y obviar la rama production.
+
+
+
